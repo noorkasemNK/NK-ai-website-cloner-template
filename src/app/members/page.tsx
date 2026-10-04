@@ -8,12 +8,20 @@ export const metadata: Metadata = {
   description: "Meet the CSULBreach CyberSecurity Club officers",
 };
 
-const members = [
+const members: { name: string; title: string; href?: string }[] = [
   { name: "Mindy Yun", title: "President" },
-  { name: "Andres Cota", title: "VP_Operations" },
+  {
+    name: "Andres Cota",
+    title: "VP_Operations",
+    href: "https://www.linkedin.com/in/andres-a-cota/",
+  },
   { name: "Bryan Gonzalez", title: "VP_Infrastructure" },
   { name: "Aaron Adelentar", title: "Treasurer" },
-  { name: "Noor Kasem", title: "Project Director" },
+  {
+    name: "Noor Kasem",
+    title: "Project Director",
+    href: "https://www.linkedin.com/in/noorkasem",
+  },
   { name: "Lizzette Castro", title: "Social Media Director" },
   { name: "Chyan Giri", title: "Outreach Coordinator" },
   { name: "David Rincon III", title: "Blue Team Captain" },
@@ -43,7 +51,18 @@ export default function MembersPage() {
                     className="object-cover"
                   />
                 </div>
-                <p className="mt-4 text-base font-semibold">{member.name}</p>
+                {member.href ? (
+                  <a
+                    href={member.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="name-shine mt-4 text-base font-semibold"
+                  >
+                    {member.name}
+                  </a>
+                ) : (
+                  <p className="mt-4 text-base font-semibold">{member.name}</p>
+                )}
                 <p className="mt-1 text-sm text-muted-foreground">{member.title}</p>
               </li>
             ))}

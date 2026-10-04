@@ -128,3 +128,36 @@
     @apply font-sans;
   }
 }
+/* Linked member names: blue text with a light streak that sweeps across on hover */
+.name-shine {
+  color: #2563eb;
+  background-image: linear-gradient(110deg, #2563eb 42%, #bfdbfe 50%, #2563eb 58%);
+  background-size: 250% 100%;
+  background-position: 100% 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: filter 0.3s ease;
+}
+
+.name-shine:hover,
+.name-shine:focus-visible {
+  animation: name-shine 1.4s linear infinite;
+  filter: drop-shadow(0 0 6px rgb(37 99 235 / 0.5));
+}
+
+@keyframes name-shine {
+  from {
+    background-position: 100% 0;
+  }
+  to {
+    background-position: 0% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .name-shine:hover,
+  .name-shine:focus-visible {
+    animation: none;
+  }
+}

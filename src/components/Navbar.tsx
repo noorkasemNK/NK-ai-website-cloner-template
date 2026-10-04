@@ -5,7 +5,7 @@ const navLinks = [
   { label: "Events", href: "/events" },
   { label: "Members", href: "/members" },
   { label: "Social media", href: "/social" },
-  { label: "Ram", href: "#ram" },
+  { label: "Calendar", href: "/calendar" },
 ];
 
 export function Navbar() {

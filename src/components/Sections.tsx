@@ -35,7 +35,7 @@ function AboutSection() {
   );
 }
 
-const tools = ["Kali Linux", "Burp Suite", "Wireshark", "Ghidra", "Metasploit", "Nmap"];
+const tools = ["Linux", "Programming", "GitHub", "Kali", "Tor", "NIST", "Wireshark"];
 
 function ToolBadges() {
   return (
@@ -104,9 +104,9 @@ export function Sections() {
       <AboutSection />
       <FeatureRail
         id="rail-3"
-        eyebrow="Keep your setup"
-        heading="Work with the tools the industry uses."
-        body="Every session is built around the real tools you'll use on the job — no toy environments."
+        eyebrow="Know your setup"
+        heading="What you can learn."
+        body="All the necessary tools for cybersecurity knowledge. Message us if you would like to learn more."
         link={{ label: "See all tools", href: "#events" }}
         visual={<ToolBadges />}
       />
@@ -115,7 +115,6 @@ export function Sections() {
         eyebrow="Your data stays yours"
         heading="A club built on trust."
         body="A welcoming, low-pressure space to learn security skills — beginners included."
-        link={{ label: "How we run sessions", href: "#members" }}
         visual={<DataGrid />}
         reverse
       />
