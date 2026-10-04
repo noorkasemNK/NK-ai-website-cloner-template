@@ -1,63 +1,37 @@
 import { FeatureRail } from "@/components/FeatureRail";
 
-const speedBars = [
-  { label: "CSULBreach", value: 100, highlight: true },
-  { label: "Club A", value: 62 },
-  { label: "Club B", value: 47 },
-  { label: "Club C", value: 38 },
-];
-
-function SpeedChart() {
+function AboutSection() {
   return (
-    <div className="w-full max-w-sm rounded-2xl border border-border bg-card p-6">
-      <p className="mb-4 font-mono text-xs text-muted-foreground">
-        events hosted / semester
-      </p>
-      <div className="space-y-3">
-        {speedBars.map((bar) => (
-          <div key={bar.label} className="flex items-center gap-3">
-            <span className="w-24 shrink-0 text-xs text-muted-foreground">
-              {bar.label}
-            </span>
-            <div className="h-2 flex-1 overflow-hidden rounded-full bg-muted">
-              <div
-                className={
-                  bar.highlight
-                    ? "h-full rounded-full bg-primary"
-                    : "h-full rounded-full bg-foreground/25"
-                }
-                style={{ width: `${bar.value}%` }}
-              />
-            </div>
-          </div>
-        ))}
+    <section
+      id="about"
+      className="scroll-mt-16 border-b border-border px-4 py-20 sm:px-6 lg:px-8"
+    >
+      <div className="mx-auto max-w-6xl">
+        <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+          About Us
+        </h2>
+        <p className="mt-6 max-w-3xl text-base leading-relaxed text-muted-foreground">
+          Welcome to the Cybersecurity Club, a community recently revived to
+          help students explore, learn, and thrive in the world of
+          cybersecurity. Whether you&apos;re a complete beginner curious about
+          how hackers think or an experienced student sharpening your skills,
+          there&apos;s a place for you here. We host regular General Body
+          Meetings (GBMs) where members learn new concepts, share knowledge,
+          and connect with peers who share the same drive. Beyond our
+          meetings, we compete in the National Cyber League (NCL), tackle
+          Capture the Flag (CTF) challenges, and run hands-on blue team
+          activities that build real-world defensive skills. Every system we
+          secure and every challenge we solve brings us one step closer to
+          becoming the defenders our digital world needs. We believe the best
+          way to learn is by doing, failing, and trying again, together.
+          Cybersecurity isn&apos;t just a career path; it&apos;s a mission to
+          protect people, data, and the future. If you&apos;re ready to
+          challenge yourself, grow your skills, and be part of something
+          bigger, join us and help us build a community where curiosity
+          becomes expertise.
+        </p>
       </div>
-    </div>
-  );
-}
-
-const workshopTracks = [
-  { name: "Web Exploitation", level: "Beginner" },
-  { name: "Reverse Engineering", level: "Intermediate" },
-  { name: "Cryptography", level: "Intermediate" },
-  { name: "Capture the Flag", level: "All levels" },
-];
-
-function TrackCards() {
-  return (
-    <div className="grid w-full max-w-sm grid-cols-1 gap-3">
-      {workshopTracks.map((track) => (
-        <div
-          key={track.name}
-          className="flex items-center justify-between rounded-xl border border-border bg-card px-4 py-3"
-        >
-          <span className="text-sm font-medium">{track.name}</span>
-          <span className="font-mono text-xs text-muted-foreground">
-            {track.level}
-          </span>
-        </div>
-      ))}
-    </div>
+    </section>
   );
 }
 
@@ -127,22 +101,7 @@ function MembershipCard() {
 export function Sections() {
   return (
     <>
-      <FeatureRail
-        id="rail-1"
-        eyebrow="Reliably active"
-        heading="More events than any club on campus."
-        body="Weekly meetings, hands-on labs, and semester-long CTF prep so members are always building something."
-        visual={<SpeedChart />}
-      />
-      <FeatureRail
-        id="rail-2"
-        eyebrow="Frontier skills"
-        heading="Learn the tracks that matter."
-        body="From web exploitation to reverse engineering, our workshops cover the skills real security teams use."
-        link={{ label: "Browse all workshops", href: "#events" }}
-        visual={<TrackCards />}
-        reverse
-      />
+      <AboutSection />
       <FeatureRail
         id="rail-3"
         eyebrow="Keep your setup"

@@ -3,16 +3,16 @@ const columns = [
     title: "Club",
     links: [
       { label: "Events", href: "/events" },
-      { label: "Members", href: "#members" },
-      { label: "Social media", href: "#social" },
+      { label: "Members", href: "/members" },
+      { label: "Social media", href: "/social" },
     ],
   },
   {
     title: "Community",
     links: [
       { label: "GitHub", href: "https://github.com" },
-      { label: "Discord", href: "#" },
-      { label: "Instagram", href: "#" },
+      { label: "Discord", href: "https://discord.gg/ABhuutDhE" },
+      { label: "Instagram", href: "https://www.instagram.com/csulbcybersecurity" },
     ],
   },
   {
