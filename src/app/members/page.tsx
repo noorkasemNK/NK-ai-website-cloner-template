@@ -9,23 +9,51 @@ export const metadata: Metadata = {
 };
 
 const members: { name: string; title: string; href?: string }[] = [
-  { name: "Mindy Yun", title: "President" },
+  {
+    name: "Mindy Yun",
+    title: "President",
+    href: "https://www.linkedin.com/in/mindy-yun/",
+  },
   {
     name: "Andres Cota",
     title: "VP_Operations",
     href: "https://www.linkedin.com/in/andres-a-cota/",
   },
-  { name: "Bryan Gonzalez", title: "VP_Infrastructure" },
-  { name: "Aaron Adelentar", title: "Treasurer" },
+  {
+    name: "Bryan Gonzalez",
+    title: "VP_Infrastructure",
+    href: "https://www.linkedin.com/in/bryan-gonzalez-083458175/",
+  },
+  {
+    name: "Aaron Adelentar",
+    title: "Treasurer",
+    href: "https://www.linkedin.com/in/aaron-a-a474a8333/",
+  },
   {
     name: "Noor Kasem",
     title: "Project Director",
     href: "https://www.linkedin.com/in/noorkasem",
   },
-  { name: "Lizzette Castro", title: "Social Media Director" },
-  { name: "Chyan Giri", title: "Outreach Coordinator" },
-  { name: "David Rincon III", title: "Blue Team Captain" },
-  { name: "Tiago Borges", title: "Breach Team Support" },
+  {
+    name: "Lizzette Castro",
+    title: "Social Media Director",
+    href: "https://www.linkedin.com/in/lizzette-castro/",
+  },
+  {
+    name: "Chyan Giri",
+    title: "Outreach Coordinator",
+    href: "https://www.linkedin.com/in/chyan-giri-74663a360/",
+  },
+  {
+    name: "David Rincon III",
+    title: "Blue Team Captain",
+    href: "https://www.linkedin.com/in/david-rincon-iii-a4895b312/",
+  },
+  {
+    name: "Tiago Borges",
+    title: "Breach Team Support",
+    href: "https://www.linkedin.com/in/tiago-miguel-evora-borges/",
+  },
 ];
 
 export default function MembersPage() {
@@ -37,6 +65,9 @@ export default function MembersPage() {
           <h1 className="text-3xl font-semibold tracking-tight">Members</h1>
           <p className="mt-2 text-base text-muted-foreground">
             Meet the team behind CSULBreach.
+          </p>
+          <p className="mt-1 text-sm text-muted-foreground">
+            Click on names to connect.
           </p>
 
           <ul className="mt-10 grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3">
