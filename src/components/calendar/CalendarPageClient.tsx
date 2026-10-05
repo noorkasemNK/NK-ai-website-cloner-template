@@ -5,9 +5,9 @@ import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const months = [
-  { key: "2026-10", label: "October 2026", src: "/images/calendar/2026-10.jpg" },
-  { key: "2026-11", label: "November 2026", src: "/images/calendar/2026-11.jpg" },
-  { key: "2026-12", label: "December 2026", src: "/images/calendar/2026-12.jpg" },
+  { key: "2026-10", label: "October 2026", src: "/images/calendar/2026-10.png" },
+  { key: "2026-11", label: "November 2026", src: "/images/calendar/2026-11.png" },
+  { key: "2026-12", label: "December 2026", src: "/images/calendar/2026-12.png" },
 ];
 
 function currentMonthIndex() {
@@ -24,17 +24,17 @@ export function CalendarPageClient() {
   const isLast = index === months.length - 1;
 
   return (
-    <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8">
+    <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8">
       <h1 className="text-3xl font-semibold tracking-tight">Calendar</h1>
 
-      <div className="relative mt-8 aspect-[1024/915] overflow-hidden">
+      <div className="relative mt-8 aspect-[4/3] overflow-hidden rounded-2xl border border-border bg-[#fdfdfd]">
         <Image
           key={month.key}
           src={month.src}
           alt={`${month.label} calendar`}
           fill
-          sizes="(min-width: 768px) 720px, 100vw"
-          className="object-cover object-top"
+          sizes="(min-width: 1024px) 976px, 100vw"
+          className="object-contain p-2"
           priority
         />
       </div>
