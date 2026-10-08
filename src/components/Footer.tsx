@@ -15,20 +15,13 @@ const columns = [
       { label: "Instagram", href: "https://www.instagram.com/csulbcybersecurity" },
     ],
   },
-  {
-    title: "Legal",
-    links: [
-      { label: "Privacy", href: "#" },
-      { label: "Terms", href: "#" },
-    ],
-  },
 ];
 
 export function Footer() {
   return (
     <footer className="px-4 py-16 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
-        <div className="grid grid-cols-2 gap-8 sm:grid-cols-4">
+        <div className="grid grid-cols-2 gap-8 sm:grid-cols-3">
           <div className="col-span-2 sm:col-span-1">
             <p className="text-base tracking-tight">
               <span className="font-semibold">CSULBreach</span>
