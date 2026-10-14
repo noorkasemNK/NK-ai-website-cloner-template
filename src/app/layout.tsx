@@ -13,8 +13,14 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://csulbcyber.org"),
   title: "CSULBreach — CyberSecurity Club",
-  description: "CSULBreach CyberSecurity Club at CSULB",
+  description:
+    "CSULBreach is the cybersecurity club at Cal State Long Beach (CSULB). Free for every student, every major: weekly meetings, CTF team, and workshops.",
+  openGraph: {
+    siteName: "CSULBreach",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
