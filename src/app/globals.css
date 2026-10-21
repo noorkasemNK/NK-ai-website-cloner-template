@@ -3,6 +3,7 @@
 @import "shadcn/tailwind.css";
 
 @custom-variant dark (&:is(.dark *));
+@custom-variant midnight (&:where([data-theme="midnight"], [data-theme="midnight"] *));
 
 @theme inline {
   --color-background: var(--background);
@@ -115,6 +116,36 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+}
+
+/* Midnight theme: starfield background with light text on dark surfaces */
+[data-theme="midnight"] {
+  color-scheme: dark;
+  --background: oklch(0.12 0 0);
+  --foreground: oklch(0.97 0 0);
+  --card: oklch(0.2 0.02 280 / 70%);
+  --card-foreground: oklch(0.97 0 0);
+  --popover: oklch(0.2 0 0);
+  --popover-foreground: oklch(0.97 0 0);
+  --primary: oklch(0.97 0 0);
+  --primary-foreground: oklch(0.145 0 0);
+  --secondary: oklch(0.27 0 0);
+  --secondary-foreground: oklch(0.97 0 0);
+  --muted: oklch(0.3 0.02 280 / 60%);
+  --muted-foreground: oklch(0.78 0 0);
+  --accent: oklch(0.27 0 0);
+  --accent-foreground: oklch(0.97 0 0);
+  --border: oklch(1 0 0 / 15%);
+  --input: oklch(1 0 0 / 20%);
+  --ring: oklch(0.6 0 0);
+}
+
+[data-theme="midnight"] body {
+  background-color: #000;
+  background-image: url("/images/midnight.gif");
+  background-size: 400px 400px;
+  background-repeat: repeat;
+  background-attachment: fixed;
 }
 
 @layer base {

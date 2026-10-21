@@ -59,7 +59,7 @@ export function EventsPageClient() {
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
-      <h1 className="text-3xl font-semibold tracking-tight">Events</h1>
+      <h1 className="text-3xl font-semibold tracking-tight midnight:text-[#6A0DAD]">Events</h1>
 
       <div className="mt-6 flex flex-wrap items-center justify-between gap-4">
         <div className="flex flex-wrap gap-2">
@@ -73,8 +73,8 @@ export function EventsPageClient() {
                 className={cn(
                   "rounded-full border px-4 py-2 text-sm font-medium transition-colors",
                   active
-                    ? "border-primary bg-primary text-primary-foreground"
-                    : "border-border bg-background text-foreground hover:bg-muted"
+                    ? "border-primary bg-primary text-primary-foreground midnight:border-[#6A0DAD] midnight:bg-[#6A0DAD] midnight:text-white"
+                    : "border-border bg-background text-foreground hover:bg-muted midnight:border-[#6A0DAD]/60 midnight:text-[#6A0DAD]"
                 )}
               >
                 {tag}
@@ -124,14 +124,14 @@ export function EventsPageClient() {
               <div
                 className={cn(
                   past
-                    ? "-mx-3 mb-4 rounded-xl bg-sky-50 px-3 py-6 sm:-mx-6 sm:px-6 dark:bg-sky-950/40"
+                    ? "-mx-3 mb-4 rounded-xl bg-sky-50 px-3 py-6 sm:-mx-6 sm:px-6 dark:bg-sky-950/40 midnight:bg-[#16325c]/70"
                     : "border-t border-border py-8 first:border-t-0 first:pt-0"
                 )}
               >
-                <h2 className="text-2xl font-semibold tracking-tight">
+                <h2 className="text-2xl font-semibold tracking-tight midnight:text-[#6A0DAD]">
                   {event.title}
                 </h2>
-                <p className="mt-3 max-w-2xl text-base text-muted-foreground">
+                <p className="mt-3 max-w-2xl text-base text-muted-foreground midnight:text-[#c3c8f5]">
                   {event.description}
                 </p>
     
@@ -139,14 +139,14 @@ export function EventsPageClient() {
                   {event.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="rounded-md bg-primary/10 px-2 py-1 text-xs font-medium text-primary"
+                      className="rounded-md bg-primary/10 px-2 py-1 text-xs font-medium text-primary midnight:bg-[#6A0DAD]/35 midnight:text-[#ddd0f7]"
                     >
                       {tag.toLowerCase()}
                     </span>
                   ))}
                 </div>
     
-                <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-muted-foreground">
+                <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-muted-foreground midnight:text-[#c3c8f5]">
                   <span className="flex items-center gap-1.5">
                     <Calendar className="size-4" />
                     {formatDate(event.date)}

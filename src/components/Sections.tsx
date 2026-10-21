@@ -7,10 +7,10 @@ function AboutSection() {
       className="scroll-mt-16 border-b border-border px-4 py-20 sm:px-6 lg:px-8"
     >
       <div className="mx-auto max-w-6xl">
-        <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+        <h2 className="text-3xl font-bold tracking-tight sm:text-4xl midnight:text-[#6699CC]">
           About Us
         </h2>
-        <p className="mt-6 max-w-3xl text-base leading-relaxed text-muted-foreground">
+        <p className="mt-6 max-w-3xl text-base leading-relaxed text-muted-foreground midnight:text-[#6699CC]">
           Welcome to the Cybersecurity Club, a community recently revived to
           help students explore, learn, and thrive in the world of
           cybersecurity. Whether you&apos;re a complete beginner curious about

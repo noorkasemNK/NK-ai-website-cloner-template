@@ -25,7 +25,7 @@ export function CalendarPageClient() {
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8">
-      <h1 className="text-3xl font-semibold tracking-tight">Calendar</h1>
+      <h1 className="text-3xl font-semibold tracking-tight midnight:text-[#6A0DAD]">Calendar</h1>
 
       <div className="relative mt-8 aspect-[4/3] overflow-hidden rounded-2xl border border-border bg-[#fdfdfd]">
         <Image
@@ -49,7 +49,7 @@ export function CalendarPageClient() {
         >
           <ChevronLeft className="size-5" />
         </button>
-        <p className="w-40 text-center text-sm font-medium" aria-live="polite">
+        <p className="w-40 text-center text-sm font-medium midnight:text-[#c3c8f5]" aria-live="polite">
           {month.label}
         </p>
         <button

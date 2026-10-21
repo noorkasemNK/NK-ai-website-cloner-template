@@ -35,10 +35,10 @@ export function FeatureRail({
           <p className="text-sm font-medium text-muted-foreground">
             {eyebrow}
           </p>
-          <h2 className="mt-2 text-3xl font-semibold tracking-tight text-balance sm:text-4xl">
+          <h2 className="mt-2 text-3xl font-semibold tracking-tight text-balance sm:text-4xl midnight:text-[#6699CC] midnight:font-bold">
             {heading}
           </h2>
-          <p className="mt-4 max-w-md text-base text-muted-foreground">
+          <p className="mt-4 max-w-md text-base text-muted-foreground midnight:text-[#6699CC]">
             {body}
           </p>
           {link && (

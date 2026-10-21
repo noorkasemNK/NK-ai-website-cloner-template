@@ -62,11 +62,13 @@ export default function MembersPage() {
       <Navbar />
       <main className="flex-1">
         <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-semibold tracking-tight">Members</h1>
-          <p className="mt-2 text-base text-muted-foreground">
+          <h1 className="text-3xl font-semibold tracking-tight midnight:text-[#6A0DAD]">
+            Board Members
+          </h1>
+          <p className="mt-2 text-base text-muted-foreground midnight:text-[#6A0DAD]">
             Meet the team behind CSULBreach.
           </p>
-          <p className="mt-1 text-sm text-muted-foreground">
+          <p className="mt-1 text-sm text-muted-foreground midnight:text-[#6A0DAD]">
             Click on names to connect.
           </p>
 
@@ -94,7 +96,7 @@ export default function MembersPage() {
                 ) : (
                   <p className="mt-4 text-base font-semibold">{member.name}</p>
                 )}
-                <p className="mt-1 text-sm text-muted-foreground">{member.title}</p>
+                <p className="mt-1 text-sm text-muted-foreground midnight:text-[#facc15]">{member.title}</p>
               </li>
             ))}
           </ul>

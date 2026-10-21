@@ -51,8 +51,8 @@ export default function SocialPage() {
       <Navbar />
       <main className="flex-1">
         <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-semibold tracking-tight">Social media</h1>
-          <p className="mt-2 text-base text-muted-foreground">
+          <h1 className="text-3xl font-semibold tracking-tight midnight:text-[#6A0DAD]">Social media</h1>
+          <p className="mt-2 text-base text-muted-foreground midnight:text-[#6A0DAD]">
             Follow along and stay connected with CSULBreach.
           </p>
 
@@ -74,11 +74,11 @@ export default function SocialPage() {
                     <social.icon className="size-7" />
                   </span>
                   <span className="min-w-0 flex-1">
-                    <span className="block text-lg font-semibold">{social.name}</span>
-                    <span className="block text-sm text-muted-foreground">
+                    <span className="block text-lg font-semibold midnight:text-[#6A0DAD]">{social.name}</span>
+                    <span className="block text-sm text-muted-foreground midnight:text-[#c3c8f5]">
                       {social.handle}
                     </span>
-                    <span className="mt-1 hidden text-sm text-muted-foreground sm:block">
+                    <span className="mt-1 hidden text-sm text-muted-foreground sm:block midnight:text-[#c3c8f5]">
                       {social.description}
                     </span>
                   </span>

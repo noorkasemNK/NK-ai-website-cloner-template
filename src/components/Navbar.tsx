@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const navLinks = [
   { label: "Events", href: "/events" },
@@ -40,7 +41,8 @@ export function Navbar() {
           </nav>
         </div>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3 sm:gap-4">
+          <ThemeToggle />
           <button
             type="button"
             aria-label="Notifications"
@@ -51,7 +53,7 @@ export function Navbar() {
               alt="Notifications"
               width={20}
               height={22}
-              className="h-5 w-auto object-contain"
+              className="h-5 w-auto object-contain midnight:invert"
             />
           </button>
         </div>
