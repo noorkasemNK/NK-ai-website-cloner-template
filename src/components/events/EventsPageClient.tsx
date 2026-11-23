@@ -59,7 +59,7 @@ export function EventsPageClient() {
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
-      <h1 className="text-3xl font-semibold tracking-tight midnight:text-[#6A0DAD]">Events</h1>
+      <h1 className="text-5xl font-semibold tracking-tight underline decoration-2 underline-offset-8 midnight:text-[#6A0DAD]">Events</h1>
 
       <div className="mt-6 flex flex-wrap items-center justify-between gap-4">
         <div className="flex flex-wrap gap-2">
@@ -125,7 +125,7 @@ export function EventsPageClient() {
                 className={cn(
                   past
                     ? "-mx-3 mb-4 rounded-xl bg-sky-50 px-3 py-6 sm:-mx-6 sm:px-6 dark:bg-sky-950/40 midnight:bg-[#16325c]/70"
-                    : "border-t border-border py-8 first:border-t-0 first:pt-0"
+                    : "mb-4 rounded-none border border-neutral-400 p-6 dark:border-neutral-600 midnight:border-[#6A0DAD]"
                 )}
               >
                 <h2 className="text-2xl font-semibold tracking-tight midnight:text-[#6A0DAD]">
