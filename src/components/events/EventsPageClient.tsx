@@ -131,9 +131,11 @@ export function EventsPageClient() {
                 <h2 className="text-2xl font-semibold tracking-tight midnight:text-[#6A0DAD]">
                   {event.title}
                 </h2>
-                <p className="mt-3 max-w-2xl text-base text-muted-foreground midnight:text-[#c3c8f5]">
-                  {event.description}
-                </p>
+                {event.description && (
+                  <p className="mt-3 max-w-2xl text-base text-muted-foreground midnight:text-[#c3c8f5]">
+                    {event.description}
+                  </p>
+                )}
     
                 <div className="mt-4 flex flex-wrap gap-2">
                   {event.tags.map((tag) => (
@@ -151,14 +153,18 @@ export function EventsPageClient() {
                     <Calendar className="size-4" />
                     {formatDate(event.date)}
                   </span>
-                  <span className="flex items-center gap-1.5">
-                    <Clock className="size-4" />
-                    {event.time}
-                  </span>
-                  <span className="flex items-center gap-1.5">
-                    <MapPin className="size-4" />
-                    {event.location}
-                  </span>
+                  {event.time && (
+                    <span className="flex items-center gap-1.5">
+                      <Clock className="size-4" />
+                      {event.time}
+                    </span>
+                  )}
+                  {event.location && (
+                    <span className="flex items-center gap-1.5">
+                      <MapPin className="size-4" />
+                      {event.location}
+                    </span>
+                  )}
                 </div>
               </div>
             </Fragment>
