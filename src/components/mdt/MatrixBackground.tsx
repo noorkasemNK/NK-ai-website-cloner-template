@@ -224,7 +224,7 @@ export function MatrixBackground() {
       <canvas
         ref={canvasRef}
         aria-hidden
-        className="pointer-events-none fixed inset-0 -z-20 hidden h-screen w-screen opacity-55 mdt:block"
+        className="pointer-events-none fixed inset-0 -z-20 hidden h-screen w-screen opacity-65 mdt:block"
       />
       {/* Dims the rain and adds CRT scanlines + vignette so page text stays readable */}
       <div
