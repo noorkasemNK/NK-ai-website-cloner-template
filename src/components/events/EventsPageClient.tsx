@@ -125,7 +125,7 @@ export function EventsPageClient() {
                 className={cn(
                   past
                     ? "-mx-3 mb-4 rounded-xl bg-sky-50 px-3 py-6 sm:-mx-6 sm:px-6 dark:bg-sky-950/40 midnight:bg-[#16325c]/70"
-                    : "mb-4 rounded-none border border-neutral-400 p-6 dark:border-neutral-600 midnight:border-[#6A0DAD]"
+                    : "mb-4 rounded-none border border-neutral-400 p-6 dark:border-neutral-600 midnight:border-[#6A0DAD] mdt:bg-black/75"
                 )}
               >
                 <h2 className="text-2xl font-semibold tracking-tight midnight:text-[#6A0DAD]">

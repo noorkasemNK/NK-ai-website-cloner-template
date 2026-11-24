@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Share_Tech_Mono } from "next/font/google";
+import { MatrixBackground } from "@/components/mdt/MatrixBackground";
+import { NewsletterPopup } from "@/components/NewsletterPopup";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -10,6 +12,12 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+const shareTechMono = Share_Tech_Mono({
+  variable: "--font-matrix",
+  subsets: ["latin"],
+  weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -31,19 +39,23 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      data-theme="sunlight"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      data-theme="mdt"
+      className={`${geistSans.variable} ${geistMono.variable} ${shareTechMono.variable} h-full antialiased`}
       suppressHydrationWarning
     >
       <head>
-        {/* Apply the saved theme before first paint so Midnight visitors never see a white flash */}
+        {/* Apply the saved theme before first paint (MDT is the default) so nobody sees a flash of the wrong theme */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem("theme");if(t==="midnight")document.documentElement.setAttribute("data-theme",t)}catch(e){}})()`,
+            __html: `(function(){try{var t=localStorage.getItem("theme-v2");if(t==="sunlight"||t==="midnight"||t==="mdt")document.documentElement.setAttribute("data-theme",t)}catch(e){}})()`,
           }}
         />
       </head>
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <MatrixBackground />
+        {children}
+        <NewsletterPopup />
+      </body>
     </html>
   );
 }

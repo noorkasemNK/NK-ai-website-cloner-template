@@ -3,7 +3,9 @@
 @import "shadcn/tailwind.css";
 
 @custom-variant dark (&:is(.dark *));
-@custom-variant midnight (&:where([data-theme="midnight"], [data-theme="midnight"] *));
+/* `midnight:` styles (dark surfaces, light text) also apply to MDT; `mdt:` targets MDT alone and wins on conflicts. */
+@custom-variant midnight (&:where([data-theme="midnight"], [data-theme="midnight"] *, [data-theme="mdt"], [data-theme="mdt"] *));
+@custom-variant mdt (&:where([data-theme="mdt"], [data-theme="mdt"] *));
 
 @theme inline {
   --color-background: var(--background);
@@ -147,6 +149,53 @@
   background-repeat: repeat;
   background-attachment: fixed;
 }
+
+/* MDT (Matrix Digital Train): the default theme. Black canvas, phosphor-green accents, rain behind the page. */
+[data-theme="mdt"] {
+  color-scheme: dark;
+  --background: #000;
+  --foreground: #d8ffe2;
+  --card: oklch(0.1 0.02 150 / 75%);
+  --card-foreground: #d8ffe2;
+  --popover: #031207;
+  --popover-foreground: #d8ffe2;
+  --primary: #00ff41;
+  --primary-foreground: #000;
+  --secondary: #062a12;
+  --secondary-foreground: #d8ffe2;
+  --muted: rgb(0 255 65 / 10%);
+  --muted-foreground: #8fd9a3;
+  --accent: rgb(0 255 65 / 14%);
+  --accent-foreground: #d8ffe2;
+  --border: rgb(0 255 65 / 30%);
+  --input: rgb(0 255 65 / 30%);
+  --ring: #00ff41;
+}
+
+[data-theme="mdt"] body {
+  background-color: #000;
+  font-family: var(--font-matrix), var(--font-geist-mono), ui-monospace, monospace;
+}
+
+/* Recolor the Midnight palette (purple / blue / yellow) to phosphor green under MDT */
+[data-theme="mdt"] [class~="midnight:text-[#6A0DAD]"],
+[data-theme="mdt"] [class~="midnight:text-[#6699CC]"],
+[data-theme="mdt"] [class~="midnight:text-[#facc15]"] { color: #00ff41; text-shadow: 0 0 8px rgb(0 255 65 / 0.45); }
+[data-theme="mdt"] [class~="midnight:text-[#c3c8f5]"],
+[data-theme="mdt"] [class~="midnight:text-[#ddd0f7]"] { color: #b6f5c4; }
+[data-theme="mdt"] [class~="midnight:border-[#6A0DAD]"],
+[data-theme="mdt"] [class~="midnight:border-[#6A0DAD]/60"] { border-color: rgb(0 255 65 / 0.6); }
+[data-theme="mdt"] [class~="midnight:bg-[#6A0DAD]"] { background-color: #00ff41; color: #000; }
+[data-theme="mdt"] [class~="midnight:bg-[#6A0DAD]/35"] { background-color: rgb(0 255 65 / 0.22); }
+[data-theme="mdt"] [class~="midnight:bg-[#16325c]/70"] { background-color: rgb(0 40 12 / 0.75); }
+[data-theme="mdt"] [class~="midnight:bg-[#facc15]"] { background-color: #00ff41; color: #000; box-shadow: 0 0 14px rgb(0 255 65 / 0.5); }
+[data-theme="mdt"] [class~="midnight:hover:bg-[#fde047]"]:hover { background-color: #7dffa0; }
+[data-theme="mdt"] [class~="midnight:from-[#b46cf0]"],
+[data-theme="mdt"] [class~="midnight:from-[#6b8cf3]"] { --tw-gradient-from: #00ff41; }
+[data-theme="mdt"] [class~="midnight:to-[#6b8cf3]"],
+[data-theme="mdt"] [class~="midnight:to-[#4ea4f2]"] { --tw-gradient-to: #7dffa0; }
+/* Keep the content area legible over the rain */
+[data-theme="mdt"] header { background-color: rgb(0 0 0 / 0.78); }
 
 @layer base {
   * {

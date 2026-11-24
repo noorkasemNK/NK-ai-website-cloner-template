@@ -2,10 +2,17 @@
 
 import { useSyncExternalStore } from "react";
 
-type Theme = "sunlight" | "midnight";
+type Theme = "mdt" | "sunlight" | "midnight";
+
+const OPTIONS: { value: Theme; label: string }[] = [
+  { value: "mdt", label: "MDT" },
+  { value: "sunlight", label: "Sunlight" },
+  { value: "midnight", label: "Midnight" },
+];
 
 function getTheme(): Theme {
-  return document.documentElement.dataset.theme === "midnight" ? "midnight" : "sunlight";
+  const t = document.documentElement.dataset.theme;
+  return t === "sunlight" || t === "midnight" ? t : "mdt";
 }
 
 function subscribe(onChange: () => void) {
@@ -14,43 +21,50 @@ function subscribe(onChange: () => void) {
   return () => observer.disconnect();
 }
 
-// Sliding pill switch between the Sunlight (original) and Midnight themes.
-// The knob position and colors are driven by the `midnight:` CSS variant, so the
-// switch renders correctly before hydration; React state is only used for aria-checked.
+// Three-way pill: MDT (Matrix Digital Train, the default) · Sunlight · Midnight.
+// The knob position is driven by CSS (data-theme), so it is correct before hydration.
 export function ThemeToggle() {
-  const theme = useSyncExternalStore(subscribe, getTheme, () => "sunlight" as Theme);
-  const isMidnight = theme === "midnight";
+  const theme = useSyncExternalStore(subscribe, getTheme, () => "mdt" as Theme);
 
-  function toggle() {
-    const next: Theme = isMidnight ? "sunlight" : "midnight";
-    document.documentElement.dataset.theme = next;
+  function choose(next: Theme) {
+    document.documentElement.setAttribute("data-theme", next);
     try {
-      localStorage.setItem("theme", next);
+      localStorage.setItem("theme-v2", next);
     } catch {}
   }
 
   return (
-    <button
-      type="button"
-      role="switch"
-      aria-checked={isMidnight}
-      aria-label="Midnight theme"
-      onClick={toggle}
-      className="relative grid h-9 w-40 shrink-0 grid-cols-2 items-center rounded-full bg-[#e4e4e4] p-1 text-[10px] font-bold uppercase tracking-[0.12em] shadow-[inset_0_2px_5px_rgb(0_0_0/0.25),0_1px_0_rgb(255_255_255/0.6)] outline-none focus-visible:ring-2 focus-visible:ring-ring sm:w-48 sm:text-[11px]"
+    <div
+      role="radiogroup"
+      aria-label="Theme"
+      className="relative grid h-9 w-52 shrink-0 grid-cols-3 items-center rounded-full bg-[#e4e4e4] p-1 text-[10px] font-bold uppercase tracking-[0.1em] shadow-[inset_0_2px_5px_rgb(0_0_0/0.25),0_1px_0_rgb(255_255_255/0.6)] mdt:bg-[#06140a] mdt:shadow-[inset_0_0_0_1px_rgb(0_255_65/0.45)] sm:w-72 sm:text-[11px]"
     >
       <span
         aria-hidden
-        className="absolute inset-y-1 left-1 w-[calc(50%-0.25rem)] rounded-full bg-[#a9a9a9] shadow-[0_2px_6px_rgb(0_0_0/0.35),inset_0_1px_0_rgb(255_255_255/0.35)] transition-[translate,background-color] duration-300 ease-out midnight:translate-x-full midnight:bg-black motion-reduce:transition-none"
+        className="absolute inset-y-1 left-1 w-[calc((100%-0.5rem)/3)] translate-x-full rounded-full bg-[#a9a9a9] shadow-[0_2px_6px_rgb(0_0_0/0.35),inset_0_1px_0_rgb(255_255_255/0.35)] transition-[translate,background-color] duration-300 ease-out midnight:translate-x-[200%] midnight:bg-black mdt:translate-x-0 mdt:bg-[#00ff41] mdt:shadow-[0_0_12px_rgb(0_255_65/0.7)] motion-reduce:transition-none"
       />
-      <span aria-hidden className="relative text-center text-[#3f3f3f]">
-        Sunlight
-      </span>
-      <span
-        aria-hidden
-        className="relative text-center text-[#3f3f3f]/55 transition-colors duration-300 midnight:text-white"
-      >
-        Midnight
-      </span>
-    </button>
+      {OPTIONS.map((o) => (
+        <button
+          key={o.value}
+          type="button"
+          role="radio"
+          aria-checked={theme === o.value}
+          onClick={() => choose(o.value)}
+          className={`relative rounded-full py-1 text-center outline-none transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-ring ${
+            theme === o.value
+              ? theme === "mdt"
+                ? "text-black"
+                : theme === "midnight"
+                  ? "text-white"
+                  : "text-[#3f3f3f]"
+              : theme === "mdt"
+                ? "text-white/55"
+                : "text-[#3f3f3f]/70"
+          }`}
+        >
+          {o.label}
+        </button>
+      ))}
+    </div>
   );
 }
