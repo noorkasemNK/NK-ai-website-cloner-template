@@ -6,11 +6,11 @@ import { useEffect, useRef } from "react";
 const TERMS = [
   "Noor Kasem", "Project Director", "Mindy Yun", "President", "Bryan Gonzalez",
   "VP_Infrastructure", "Andres Cota", "VP_Operations", "Lizzette Castro",
-  "Social Media Director", "Aaron Adelentar", "Treasurer", "David Rincon lll",
+  "Social Media Director", "Aaron Adelentar", "Treasurer", "David Rincon III",
   "Tiago Borges", "Blue Team Captain", "Breach Team Support", "Chyan Giri",
   "Outreach Coordinator", "Architect", "Cyber", "CSULBreach", "CyberSecurity",
-  "NCL", "CTF", "Alogrithm", "Programming", "Malware", "Viruses",
-  "Phishing AttacK", "Firewall", "Encryption", "Incident Response", "IT Support",
+  "NCL", "CTF", "Algorithm", "Programming", "Malware", "Viruses",
+  "Phishing Attack", "Firewall", "Encryption", "Incident Response", "IT Support",
   "Mr. Robot", "VPN", "Hacking", "Data Breach", "Artificial Intelligence",
   "Information Systems", "Computer Science", "Agentic", "Matrix",
   "Asymmetric Warfare", "Anonymous", "Blue Team", "OC2600", "Irvine Underground", "Tor",
@@ -224,7 +224,7 @@ export function MatrixBackground() {
       <canvas
         ref={canvasRef}
         aria-hidden
-        className="pointer-events-none fixed inset-0 -z-20 hidden h-screen w-screen opacity-35 mdt:block"
+        className="pointer-events-none fixed inset-0 -z-20 hidden h-screen w-screen opacity-55 mdt:block"
       />
       {/* Dims the rain and adds CRT scanlines + vignette so page text stays readable */}
       <div
@@ -232,7 +232,7 @@ export function MatrixBackground() {
         className="pointer-events-none fixed inset-0 -z-10 hidden mdt:block"
         style={{
           background:
-            "linear-gradient(rgba(0,0,0,0) 50%, rgba(0,0,0,0.35) 50%) 0 0 / 100% 4px, radial-gradient(circle at center, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.85) 100%)",
+            "linear-gradient(rgba(0,0,0,0) 50%, rgba(0,0,0,0.35) 50%) 0 0 / 100% 4px, radial-gradient(circle at center, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.75) 100%)",
         }}
       />
     </>
